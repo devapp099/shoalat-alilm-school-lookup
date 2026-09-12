@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>مدرسة شعلة العلم للتعليم الأساسي - الاستعلام عن بيانات الطالب</title>
+  <meta name="description" content="نظام الاستعلام عن بيانات الطلبة - مدرسة شعلة العلم للتعليم الأساسي (1-4)">
+
+  <!-- خطوط عربية واضحة: Cairo و Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpeg" href="images/school-logo.jpeg">
+</head>
+<body>
+
+  <!-- ==================== الرأس: الشعار واسم المدرسة ==================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <img src="images/school-logo.jpeg" alt="شعار مدرسة شعلة العلم" class="school-logo">
+      <h2 class="school-name">مدرسة شعلة العلم للتعليم الأساسي (1–4)</h2>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- ==================== العنوان الرئيسي ==================== -->
+    <section class="intro">
+      <h1 class="main-title">الاستعلام عن بيانات الطالب</h1>
+      <p class="sub-text">يرجى إدخال اسم الطالب أو الطالبة الثلاثي أو الاسم الكامل</p>
+    </section>
+
+    <!-- ==================== بطاقة البحث ==================== -->
+    <section class="card search-card" id="searchCard">
+      <form id="searchForm" novalidate>
+        <div class="field-group">
+          <label for="studentName">اسم الطالب أو الطالبة</label>
+          <div class="voice-input-wrap">
+            <input
+              type="text"
+              id="studentName"
+              name="studentName"
+              placeholder="مثال: أحمد محمد علي"
+              autocomplete="off"
+              inputmode="text"
+              required
+            >
+            <button type="button" class="btn-voice" id="voiceBtn" aria-label="كتابة اسم الطالب بالصوت" title="كتابة اسم الطالب بالصوت">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a1 1 0 0 1 2 0 7 7 0 0 1-6 6.92V20h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2.08A7 7 0 0 1 5 11a1 1 0 0 1 2 0 5 5 0 0 0 10 0Z"/>
+              </svg>
+            </button>
+          </div>
+          <span class="voice-hint" id="voiceHint">يمكنك كتابة الاسم أو الضغط على الميكروفون ونطقه.</span>
+        </div>
+
+        <div class="message-box" id="messageBox" role="alert" aria-live="polite"></div>
+
+        <button type="submit" class="btn-search" id="searchBtn">
+          <span class="btn-text">بحث</span>
+          <span class="spinner" id="spinner" hidden></span>
+        </button>
+      </form>
+
+      <p class="privacy-note">تُستخدم البيانات لغرض الاستعلام المدرسي فقط.</p>
+    </section>
+
+    <!-- ==================== بطاقة النتيجة ==================== -->
+    <section class="card result-card" id="resultCard" hidden>
+      <h2 class="result-title">بيانات الطالب</h2>
+
+      <div class="result-grid">
+        <div class="result-item">
+          <span class="result-label">الاسم</span>
+          <span class="result-value" id="resultName">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">مقيد بالصف</span>
+          <span class="result-value" id="resultGrade">—</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">الشعبة</span>
+          <span class="result-value" id="resultSection">—</span>
+        </div>
+      </div>
+
+      <button type="button" class="btn-new-search" id="newSearchBtn">بحث جديد</button>
+    </section>
+
+  </main>
+
+  <!-- ==================== الذيل ==================== -->
+  <footer class="site-footer">
+    <p>جميع الحقوق محفوظة © مدرسة شعلة العلم للتعليم الأساسي</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
